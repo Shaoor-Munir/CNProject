@@ -53,7 +53,6 @@ class PacketCaptureDialogClass(QtWidgets.QMainWindow, Ui_PacketCaptureDialog):
             pcap = pyshark.FileCapture('output.pcap')
 
             json_file = open("ports.lists.json")
-
             if json_file.closed:
                 print("Error in opening the JSON file.")
             else:
