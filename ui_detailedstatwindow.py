@@ -1,0 +1,92 @@
+# -*- coding: utf-8 -*-
+
+# Form implementation generated from reading ui file 'detailedstatwindow.ui'
+#
+# Created by: PyQt5 UI code generator 5.9
+#
+# WARNING! All changes made in this file will be lost!
+
+from PyQt5 import QtCore, QtGui, QtWidgets
+
+class Ui_DetailedStatWindow(object):
+    def setupUi(self, DetailedStatWindow):
+        DetailedStatWindow.setObjectName("DetailedStatWindow")
+        DetailedStatWindow.resize(1094, 753)
+        self.centralwidget = QtWidgets.QWidget(DetailedStatWindow)
+        self.centralwidget.setObjectName("centralwidget")
+        self.stats_table = QtWidgets.QTableWidget(self.centralwidget)
+        self.stats_table.setGeometry(QtCore.QRect(20, 100, 1051, 501))
+        font = QtGui.QFont()
+        font.setPointSize(14)
+        self.stats_table.setFont(font)
+        self.stats_table.setObjectName("stats_table")
+        self.stats_table.setColumnCount(3)
+        self.stats_table.setRowCount(0)
+        item = QtWidgets.QTableWidgetItem()
+        self.stats_table.setHorizontalHeaderItem(0, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.stats_table.setHorizontalHeaderItem(1, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.stats_table.setHorizontalHeaderItem(2, item)
+        self.verticalLayoutWidget = QtWidgets.QWidget(self.centralwidget)
+        self.verticalLayoutWidget.setGeometry(QtCore.QRect(330, 0, 361, 80))
+        self.verticalLayoutWidget.setObjectName("verticalLayoutWidget")
+        self.verticalLayout = QtWidgets.QVBoxLayout(self.verticalLayoutWidget)
+        self.verticalLayout.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout.setObjectName("verticalLayout")
+        self.label = QtWidgets.QLabel(self.verticalLayoutWidget)
+        font = QtGui.QFont()
+        font.setPointSize(14)
+        self.label.setFont(font)
+        self.label.setObjectName("label")
+        self.verticalLayout.addWidget(self.label)
+        self.label_totalpackets = QtWidgets.QLabel(self.verticalLayoutWidget)
+        font = QtGui.QFont()
+        font.setPointSize(14)
+        self.label_totalpackets.setFont(font)
+        self.label_totalpackets.setObjectName("label_totalpackets")
+        self.verticalLayout.addWidget(self.label_totalpackets)
+        self.horizontalLayoutWidget = QtWidgets.QWidget(self.centralwidget)
+        self.horizontalLayoutWidget.setGeometry(QtCore.QRect(330, 610, 411, 80))
+        self.horizontalLayoutWidget.setObjectName("horizontalLayoutWidget")
+        self.horizontalLayout = QtWidgets.QHBoxLayout(self.horizontalLayoutWidget)
+        self.horizontalLayout.setContentsMargins(0, 0, 0, 0)
+        self.horizontalLayout.setObjectName("horizontalLayout")
+        self.pushButton_piechart = QtWidgets.QPushButton(self.horizontalLayoutWidget)
+        font = QtGui.QFont()
+        font.setPointSize(14)
+        self.pushButton_piechart.setFont(font)
+        self.pushButton_piechart.setObjectName("pushButton_piechart")
+        self.horizontalLayout.addWidget(self.pushButton_piechart)
+        self.pushButton_bargraph = QtWidgets.QPushButton(self.horizontalLayoutWidget)
+        font = QtGui.QFont()
+        font.setPointSize(14)
+        self.pushButton_bargraph.setFont(font)
+        self.pushButton_bargraph.setObjectName("pushButton_bargraph")
+        self.horizontalLayout.addWidget(self.pushButton_bargraph)
+        DetailedStatWindow.setCentralWidget(self.centralwidget)
+        self.menubar = QtWidgets.QMenuBar(DetailedStatWindow)
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 1094, 28))
+        self.menubar.setObjectName("menubar")
+        DetailedStatWindow.setMenuBar(self.menubar)
+        self.statusbar = QtWidgets.QStatusBar(DetailedStatWindow)
+        self.statusbar.setObjectName("statusbar")
+        DetailedStatWindow.setStatusBar(self.statusbar)
+
+        self.retranslateUi(DetailedStatWindow)
+        QtCore.QMetaObject.connectSlotsByName(DetailedStatWindow)
+
+    def retranslateUi(self, DetailedStatWindow):
+        _translate = QtCore.QCoreApplication.translate
+        DetailedStatWindow.setWindowTitle(_translate("DetailedStatWindow", "Detailed Statistics"))
+        item = self.stats_table.horizontalHeaderItem(0)
+        item.setText(_translate("DetailedStatWindow", "Type"))
+        item = self.stats_table.horizontalHeaderItem(1)
+        item.setText(_translate("DetailedStatWindow", "Total Packets"))
+        item = self.stats_table.horizontalHeaderItem(2)
+        item.setText(_translate("DetailedStatWindow", "Percentage"))
+        self.label.setText(_translate("DetailedStatWindow", "Detailed Statistics of Captured Packets"))
+        self.label_totalpackets.setText(_translate("DetailedStatWindow", "Total packets captured:"))
+        self.pushButton_piechart.setText(_translate("DetailedStatWindow", "View as Pie Chart"))
+        self.pushButton_bargraph.setText(_translate("DetailedStatWindow", "View as Bar Graph"))
+

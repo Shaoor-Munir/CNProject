@@ -44,7 +44,7 @@ class Ui_PacketCaptureDialog(object):
 
     def retranslateUi(self, PacketCaptureDialog):
         _translate = QtCore.QCoreApplication.translate
-        PacketCaptureDialog.setWindowTitle(_translate("PacketCaptureDialog", "Dialog"))
+        PacketCaptureDialog.setWindowTitle(_translate("PacketCaptureDialog", "Capturing Packets"))
         self.label.setText(_translate("PacketCaptureDialog", "Capturing incoming and outgoing packets"))
         self.timer_label.setText(_translate("PacketCaptureDialog", "Time elapsed: 0 millsecond"))
         self.pushButton_stop.setText(_translate("PacketCaptureDialog", "Stop Capture"))

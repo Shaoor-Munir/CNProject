@@ -11,8 +11,9 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(585, 376)
+        MainWindow.resize(585, 341)
         self.centralWidget = QtWidgets.QWidget(MainWindow)
+        self.centralWidget.setEnabled(True)
         self.centralWidget.setObjectName("centralWidget")
         self.verticalLayoutWidget = QtWidgets.QWidget(self.centralWidget)
         self.verticalLayoutWidget.setGeometry(QtCore.QRect(50, 50, 473, 201))
@@ -24,18 +25,23 @@ class Ui_MainWindow(object):
         self.textBrowser = QtWidgets.QTextBrowser(self.verticalLayoutWidget)
         self.textBrowser.setObjectName("textBrowser")
         self.verticalLayout.addWidget(self.textBrowser)
+        self.horizontalLayout = QtWidgets.QHBoxLayout()
+        self.horizontalLayout.setContentsMargins(11, 11, 11, 11)
+        self.horizontalLayout.setSpacing(6)
+        self.horizontalLayout.setObjectName("horizontalLayout")
         self.pushButton_start = QtWidgets.QPushButton(self.verticalLayoutWidget)
         font = QtGui.QFont()
         font.setPointSize(14)
         self.pushButton_start.setFont(font)
         self.pushButton_start.setObjectName("pushButton_start")
-        self.verticalLayout.addWidget(self.pushButton_start)
+        self.horizontalLayout.addWidget(self.pushButton_start)
         self.pushButton_results = QtWidgets.QPushButton(self.verticalLayoutWidget)
         font = QtGui.QFont()
         font.setPointSize(14)
         self.pushButton_results.setFont(font)
         self.pushButton_results.setObjectName("pushButton_results")
-        self.verticalLayout.addWidget(self.pushButton_results)
+        self.horizontalLayout.addWidget(self.pushButton_results)
+        self.verticalLayout.addLayout(self.horizontalLayout)
         MainWindow.setCentralWidget(self.centralWidget)
         self.menuBar = QtWidgets.QMenuBar(MainWindow)
         self.menuBar.setGeometry(QtCore.QRect(0, 0, 585, 28))
@@ -47,7 +53,7 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
+        MainWindow.setWindowTitle(_translate("MainWindow", "Packet Analyzer"))
         self.textBrowser.setHtml(_translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"

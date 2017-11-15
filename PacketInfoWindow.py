@@ -5,19 +5,22 @@ from PyQt5 import QtWidgets, QtCore, QtGui
 
 from ui_packetinfowindow import Ui_PacketInfoWindow
 
-from StatisticsWindow import StatisticsWindowClass
+from DetailedStatWindow import  DetailedStatWindowClass
 
 
 class PacketInfoWindowClass(QtWidgets.QMainWindow, Ui_PacketInfoWindow):
     def __init__(self):
         super().__init__()
+
+        self.setStyleSheet("background:white")
         self.setupUi(self)
         self.setWindowModality(QtCore.Qt.ApplicationModal)
-
+        self.setFixedSize(self.size())
         self.packetTable.setSizeAdjustPolicy(QtWidgets.QAbstractScrollArea.AdjustToContents)
         self.packetTable.horizontalHeader().setStretchLastSection(True);
 
         self.pushButton_stats.clicked.connect(self.stat_clicked)
+        self.pushButton_stats.setStyleSheet("background:lightgrey")
 
         # self.packetTable.resizeColumnsToContents()
 
@@ -35,9 +38,10 @@ class PacketInfoWindowClass(QtWidgets.QMainWindow, Ui_PacketInfoWindow):
                 print("Error in opening the JSON file.")
             else:
                 ports = json.load(json_file)
+
                 for pkt in pcap:
 
-                    if pkt.transport_layer:
+                    if 'ip' in pkt and pkt.transport_layer:
                         self.packetTable.insertRow(self.packetTable.rowCount())
                         dport_number = pkt[pkt.transport_layer].dstport
                         sport_number = pkt[pkt.transport_layer].srcport
@@ -50,17 +54,17 @@ class PacketInfoWindowClass(QtWidgets.QMainWindow, Ui_PacketInfoWindow):
                         print("Destination port number is: %s and Source port number is: %s" % (
                             dport_number, sport_number))
 
-                        if dport_number in ports and ports[dport_number][0]["status"] == "Official":
+                        if dport_number in ports and "Official" in ports[dport_number][0]["status"]:
                             self.packetTable.setItem(self.packetTable.rowCount() - 1, 2,
                                                      QtWidgets.QTableWidgetItem(ports[dport_number][0]["description"]))
                             self.packetTable.item(self.packetTable.rowCount() - 1, 1).setBackground(
-                                QtGui.QColor("blue"))
-                        elif sport_number in ports and ports[sport_number][0]["status"] == "Official":
+                                QtGui.QColor("lightgreen"))
+                        elif sport_number in ports and "Official" in ports[sport_number][0]["status"]:
                             print("Description: %s" % ports[sport_number][0]["description"])
                             self.packetTable.setItem(self.packetTable.rowCount() - 1, 2,
                                                      QtWidgets.QTableWidgetItem(ports[sport_number][0]["description"]))
                             self.packetTable.item(self.packetTable.rowCount() - 1, 0).setBackground(
-                                QtGui.QColor("blue"))
+                                QtGui.QColor("lightgreen"))
                         else:
                             print("The packet cannot be classified")
                             self.packetTable.setItem(self.packetTable.rowCount() - 1, 2,
@@ -72,4 +76,4 @@ class PacketInfoWindowClass(QtWidgets.QMainWindow, Ui_PacketInfoWindow):
 
 
     def stat_clicked(self):
-        self.statswindow = StatisticsWindowClass()
+        self.detailedstatwindow = DetailedStatWindowClass()

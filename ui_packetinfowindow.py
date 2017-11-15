@@ -11,11 +11,11 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_PacketInfoWindow(object):
     def setupUi(self, PacketInfoWindow):
         PacketInfoWindow.setObjectName("PacketInfoWindow")
-        PacketInfoWindow.resize(1091, 649)
+        PacketInfoWindow.resize(1091, 712)
         self.centralwidget = QtWidgets.QWidget(PacketInfoWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.packetTable = QtWidgets.QTableWidget(self.centralwidget)
-        self.packetTable.setGeometry(QtCore.QRect(30, 60, 1021, 461))
+        self.packetTable.setGeometry(QtCore.QRect(30, 60, 1021, 531))
         font = QtGui.QFont()
         font.setPointSize(14)
         self.packetTable.setFont(font)
@@ -29,13 +29,13 @@ class Ui_PacketInfoWindow(object):
         item = QtWidgets.QTableWidgetItem()
         self.packetTable.setHorizontalHeaderItem(2, item)
         self.label = QtWidgets.QLabel(self.centralwidget)
-        self.label.setGeometry(QtCore.QRect(260, 20, 591, 21))
+        self.label.setGeometry(QtCore.QRect(330, 20, 591, 21))
         font = QtGui.QFont()
         font.setPointSize(14)
         self.label.setFont(font)
         self.label.setObjectName("label")
         self.pushButton_stats = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton_stats.setGeometry(QtCore.QRect(410, 540, 171, 30))
+        self.pushButton_stats.setGeometry(QtCore.QRect(460, 610, 171, 30))
         font = QtGui.QFont()
         font.setPointSize(14)
         self.pushButton_stats.setFont(font)
@@ -54,7 +54,7 @@ class Ui_PacketInfoWindow(object):
 
     def retranslateUi(self, PacketInfoWindow):
         _translate = QtCore.QCoreApplication.translate
-        PacketInfoWindow.setWindowTitle(_translate("PacketInfoWindow", "MainWindow"))
+        PacketInfoWindow.setWindowTitle(_translate("PacketInfoWindow", "Packet Info"))
         item = self.packetTable.horizontalHeaderItem(0)
         item.setText(_translate("PacketInfoWindow", "Source IP"))
         item = self.packetTable.horizontalHeaderItem(1)
@@ -62,5 +62,5 @@ class Ui_PacketInfoWindow(object):
         item = self.packetTable.horizontalHeaderItem(2)
         item.setText(_translate("PacketInfoWindow", "Classification"))
         self.label.setText(_translate("PacketInfoWindow", "All the packets captured and their classification"))
-        self.pushButton_stats.setText(_translate("PacketInfoWindow", "View Statistics"))
+        self.pushButton_stats.setText(_translate("PacketInfoWindow", "View Stats"))
 
